@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\usercontroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//USER
+Route::get('/user',[usercontroller::class, 'index'])->name('user.index');
+Route::get('/user/create',[usercontroller::class, 'create'])->name('user.create');
+Route::post('/user/create/add',[usercontroller::class, 'store'])->name('user.store');
+
 
 Auth::routes();
 

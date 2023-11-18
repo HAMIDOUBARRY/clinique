@@ -108,7 +108,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle no-arrow">
+                    <a href="{{route('user.index')}}" class="dropdown-toggle no-arrow">
                         <span class="micon fa fa-person"  style="font-size: 2.5em;"></span>
                         <span class="mtext">USER</span>
                     </a>
