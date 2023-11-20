@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rendezvouses', function (Blueprint $table) {
             $table->id();
             
-            $table->date('date');
+            $table->string('date');
             
             $table->foreignId('patient_id')->constrained('patients');
             $table->foreignId('service_id')->constrained('services');
