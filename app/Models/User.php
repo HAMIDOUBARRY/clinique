@@ -20,6 +20,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = [];
+
+    public function patient()
+    {
+        return $this->morphTo();
+    }
+    public function medecin()
+    {
+        return $this->morphTo();
+    }
     
     public function factures():HasMany
     {

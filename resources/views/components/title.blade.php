@@ -18,7 +18,14 @@
 		rel="stylesheet" />
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="src/plugins/jquery-asColorPicker/dist/css/asColorPicker.css" />
+	<!-- switchery css -->
+	<link rel="stylesheet" type="text/css" href="src/plugins/switchery/switchery.min.css" />
+	<!-- bootstrap-tagsinput css -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
+	<link rel="stylesheet" type="text/css" href="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+	<!-- bootstrap-touchspin css -->
+	<link rel="stylesheet" type="text/css" href="src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" />
 	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css" />
 	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css" />
 	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
@@ -52,5 +59,5 @@
 			})(window, document, "script", "dataLayer", "GTM-NXZMQSS");
 	</script>
 	<!-- End Google Tag Manager -->
-	
+
 </head>

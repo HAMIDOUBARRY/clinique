@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
            
             $table->string('situation_familiale');
             $table->boolean('assurance_medicale')->nullable();
@@ -21,13 +22,12 @@ return new class extends Migration
             $table->string('nom_mere');
             $table->string('tel_prevenir');
 
-            $table->foreignId('provenance_id')->constrained('provenances');
-    
+            $table->foreignId('provenance_id')->references('id')->on('provenances')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
-
     }
 
     /**
@@ -35,9 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('patients', function (Blueprint $table) {
-            $table->dropForeign('provenance_id');
-        });
         Schema::dropIfExists('patients');
     }
 };

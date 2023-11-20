@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('adresse');
             $table->string('rue');
-            $table->integer('telephone');
+            $table->string('telephone')->unique();
             $table->string('email')->unique();
             $table->foreignId('service_id')->constrained('services');
             $table->timestamps();

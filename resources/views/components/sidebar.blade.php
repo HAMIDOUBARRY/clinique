@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle no-arrow">
+                    <a href="{{route('rendezvous.index')}}" class="dropdown-toggle no-arrow">
                         <span  class="micon fa fa-calendar-check-o" style="font-size: 2.5em;"></span>
                          <span class="mtext">RENDEZ VOUS</span>
                     </a>
@@ -28,7 +28,7 @@
                         <span class="mtext">GESTION PATIENT</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="#">PATIENT</a></li>
+                        <li><a href="{{route('patient.index')}}">PATIENT</a></li>
                         <li>
                             <a href="advanced-components.html">HOSPITALISATION</a>
                         </li>
@@ -49,7 +49,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="#">TRAITEMENT</a></li>
-                        <li><a href="#">HOPITALS</a></li>
+                        <li><a href="{{route('hopital.index')}}">HOPITALS</a></li>
                         <li><a href="#">EXAMEN BIOLOGIQUE</a></li>
                         <li><a href="#">EXAMEN RADIOLOGIE</a></li>
 

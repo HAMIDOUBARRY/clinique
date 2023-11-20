@@ -32,4 +32,9 @@ class medecin extends User
     {
         return $this->belongsTo(specialite::class, "specialite_id", "id");
     }
+
+    public function user()
+    {
+       return $this->belongsTo(User::class);
+    }
 }

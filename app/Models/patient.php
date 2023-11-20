@@ -42,5 +42,9 @@ class patient extends User
     {
            return $this->belongsTo(provenance::class, "provenance_id", "id");
      }
+     public function user()
+     {
+        return $this->belongsTo(User::class);
+     }
 
 }
