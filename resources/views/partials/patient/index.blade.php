@@ -25,9 +25,6 @@
                     <th>NOM_MERE</th>
                     <th>TEL_PREVENIR</th>
                     <th>PROVENANCE</th>
-                    <th>CODE</th>
-                    <th>ASSURANCE</th>
-                    <th>CREATED_AT</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
@@ -42,9 +39,6 @@
                 <td>{{$patient->nom_mere}}</td>
                 <td>{{$patient->tel_prevenir}} </td>
                 <td>{{$patient->provenance->province}}</td>
-                <td>{{$patient->code_assurance}}</td>
-                <td>{{$patient->assurance_medicale}}</td>
-                <td>{{$patient->created_at}}</td>
                 <td>
                     <div class="table-actions">
                         <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>

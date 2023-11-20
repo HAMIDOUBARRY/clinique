@@ -37,8 +37,16 @@
                             </div>
                         </div>
                         <div class="row">
+                            
                             <div class="col-md-4 col-sm-12">
-                                <label for="type">PROVENANCE</label>
+                                <div class="form-group">
+                                    <label for="tel_prevenir">tel_prevenir</label>
+                                    <input type="text" name="tel_prevenir" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12">
+                                <label for="provenance_id">PROVENANCE</label>
                                 <div class="form-group">
                                     <select id="provenance_id"
                                         class="form-control @error('provenance_id') is-invalid @enderror"
@@ -57,18 +65,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12">
-                                <div class="form-group">
-                                    <label for="assurance_medicale">ASSURANCE</label>
-                                    <input type="number" name="assurance_medicale" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-12">
-                                <div class="form-group">
-                                    <label for="code_assurance">CODE</label>
-                                    <input type="text" name="code_assurance" class="form-control">
-                                </div>
-                            </div>
+
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
                                     <label for="matricule">matricule</label>
@@ -87,8 +84,86 @@
                                     <input type="text" name="prenom" class="form-control" required>
                                 </div>
                             </div>
-                           
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="date_naissance">DATE_NAISSANCE</label>
+                                    <input type="date" name="date_naissance" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="sexe">sexe</label>
+                                    <select id="sexe" class="form-control @error('sexe') is-invalid @enderror"
+                                        name="sexe" required>
+                                        <option value="">VEUILLEZ CHOISIR SEXE</option>
+                                        <option value="HOMME">HOMME</option>
+                                        <option value="FEMME">FEMME</option>
+                                    </select>
 
+                                    @error('sexe')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="adresse">ADRESSE</label>
+                                    <input type="text" name="adresse" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="email">EMAIL</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="password">PASSWORD</label>
+                                    <input type="password" name="password" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="tel">TELEPHONE</label>
+                                    <input type="text" name="tel" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="nationalite">NATIONALITE</label>
+                                    <input type="text" name="nationalite" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label for="profession">PROFESSION</label>
+                                    <input type="text" name="profession" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12">
+                                <label for="type">Type</label>
+
+                                <div class="form-group">
+                                    <select id="type" class="form-control @error('type') is-invalid @enderror"
+                                        name="type" required>
+                                        <option value="">VEUILLEZ CHOISIR UN TYPE</option>
+                                        <option value="patient">Patient</option>
+                                        <option value="medecin">Médecin</option>
+                                    </select>
+
+                                    @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
                         <div class="modal-footer">
