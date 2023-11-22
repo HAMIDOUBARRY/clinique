@@ -2,7 +2,7 @@
 
 @section("content")
 
-<div class="card-box mb-40" style="overflow-x: auto;">
+<div class="card-box mb-40">
     <div class="pd-20">
         <h4 class="text-green h2">UTILISATEUR</h4>
         <p class="mb-0">
@@ -10,7 +10,7 @@
                 target="_blank">AJOUTER</a>
         </p>
     </div>
-    <div class="pb-20">
+    <div class="pb-20"  style="overflow-x: auto;">
         <table class="data-table table stripe hover nowrap">
             <thead>
                 <tr>

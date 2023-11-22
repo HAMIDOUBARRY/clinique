@@ -96,7 +96,7 @@
                         <span class="mtext">CHAMBRE</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="#">CHAMBRE</a></li>
+                        <li><a href="{{route('chambre.index')}}">CHAMBRE</a></li>
                         <li><a href="#">CHAMBRE_HOSPITALISER</a></li>
                     </ul>
                 </li>

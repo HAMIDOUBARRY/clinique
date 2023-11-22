@@ -47,17 +47,18 @@
                                 <div class="form-group">
                                     <label for="sexe">sexe</label>
                                     <select id="sexe" class="form-control @error('sexe') is-invalid @enderror"
-                                    name="sexe" required>
-                                    <option value="">VEUILLEZ CHOISIR SEXE</option>
-                                    <option value="HOMME">HOMME</option>
-                                    <option value="FEMME">FEMME</option>
-                                </select>
+                                        name="sexe" required>
+                                        <option value="">VEUILLEZ CHOISIR SEXE</option>
+                                        <option value="HOMME">HOMME</option>
+                                        <option value="FEMME">FEMME</option>
+                                    </select>
 
-                                @error('sexe')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror                                </div>
+                                    @error('sexe')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
@@ -103,7 +104,7 @@
                                 <div class="form-group">
                                     <select id="type" class="form-control @error('type') is-invalid @enderror"
                                         name="type" required>
-                                        <option value="">VEUILLEZ CHOISIR UN TYPE</option>
+                                        <option value="#">VEUILLEZ CHOISIR UN TYPE</option>
                                         <option value="patient">Patient</option>
                                         <option value="medecin">Médecin</option>
                                     </select>

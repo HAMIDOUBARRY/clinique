@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\chambrecontroller;
 use App\Http\Controllers\hopitalcontroller;
 use App\Http\Controllers\patientcontroller;
 use App\Http\Controllers\rendezvouscontroller;
 use App\Http\Controllers\usercontroller;
+use App\Models\chambre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +41,13 @@ Route::post('/patient/create/add', [patientcontroller::class, 'store'])->name('p
 Route::get('/hopital', [hopitalcontroller::class, 'index'])->name('hopital.index');
 Route::get('/hopital/create', [hopitalcontroller::class, 'create'])->name('hopital.create');
 Route::post('/hopital/create/add',[hopitalcontroller::class,'store'])->name('hopital.store');
+
+//POUR CHAMBRE
+Route::group(['prefix'=>'chambre'], function() {
+ Route::get('/', [chambrecontroller::class, 'index'])->name('chambre.index');
+ Route::get('/create', [chambrecontroller::class, 'create'])->name('chambre.create');
+ Route::post('/create/add', [chambrecontroller::class, 'store'])->name('chambre.store');
+});
 
 Auth::routes();
 
