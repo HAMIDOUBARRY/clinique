@@ -74,7 +74,7 @@
                         <span class="mtext">MEDECIN</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="highchart.html">MEDEDCIN</a></li>
+                        <li><a href="{{route("medecin.index")}}">MEDEDCIN</a></li>
                         <li><a href="knob-chart.html">SPECIALITE</a></li>
                         <li><a href="jvectormap.html">DEPARTEMENT</a></li>
                     </ul>

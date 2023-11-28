@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="btn-list-end d-flex justify-content-end mb-30">
+    <a href="#" class="btn btn-primary btn-lg col-md-2  ">
+       CHAMBRE_HOSPITALISER
+    </a>
+   
+</div>
 
 <div class="card-box mb-30" id="tableContainer">
     <div class="pd-20">
-        <h4 class="text-blue h4">Data Table with multiple select row</h4>
+        <h4 class="text-blue h2  ml-4 ">Data Table with multiple select row</h4>
 
-        <button onclick="showForm()" class="btn btn-primary mb-4">AJOUTER</button>
+        <button onclick="showForm()" class="btn btn-primary col-md-2 mb-4">AJOUTER</button>
 
     </div>
     <div class="pb-20">
