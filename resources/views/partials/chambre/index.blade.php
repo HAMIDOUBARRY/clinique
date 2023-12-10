@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="btn-list-end d-flex justify-content-end mb-30">
-    <a href="#" class="btn btn-primary btn-lg col-md-2  ">
-       CHAMBRE_HOSPITALISER
+    <a href="{{route('chambrehospitalisation.index')}}" class="btn btn-primary btn-lg col-md-2  ">
+       CHAMBRE_HOSPI
     </a>
    
 </div>

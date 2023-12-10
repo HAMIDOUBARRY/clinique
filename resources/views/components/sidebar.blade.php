@@ -85,7 +85,7 @@
                         <span class="mtext">HOSPITALISATION</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="#">HOSPITALISER</a></li>
+                        <li><a href="{{route('hospitalisation.index')}}">HOSPITALISER</a></li>
                         <li><a href="#">CHAMBRE_HOSPITALISER</a></li>
 
                     </ul>

@@ -14,6 +14,6 @@ class chambre extends Model
 
     public function hospitalisations():BelongsToMany
     {
-        return $this->belongsToMany(hospitalisation::class, "chambre_hospitalisation", "chambre_id", "hospitalisation_id");
+        return $this->belongsToMany(hospitalisation::class)->withPivot('date_attrib', 'date_liberation');
     }
 }

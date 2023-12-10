@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('chambre_hospitalisation', function (Blueprint $table) {
             $table->id();
-            $table->date('date_attribution');
+            $table->date('date_attrib');
             $table->date('date_liberation');
-            $table->foreignId('chambre_id')->constrained('chambres');
-            $table->foreignId('hospitalisation_id')->constrained('hospitalisations');
+            $table->unsignedBigInteger('chambre_id');
+            $table->unsignedBigInteger('hospitalisation_id');
+
+            $table->foreign('chambre_id')->references('id')->on('chambres')->onDelete('cascade');
+            $table->foreign('hospitalisation_id')->references('id')->on('hospitalisations')->onDelete('cascade');
+
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
@@ -27,10 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::create('chambre_hospitalisation', function (Blueprint $table) {
-            $table->dropForeign(['chambre_id', 'hospitalisation_id']);
-          
-         });
         Schema::dropIfExists('chambre_hospitalisation');
     }
 };

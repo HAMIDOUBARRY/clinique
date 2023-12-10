@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('hospitalisations', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
+            $table->string('date');
             $table->string('type_admission');
             $table->string('motif');
-            $table->string('nomprenom_acc');
+            $table->string('name_acc');
             $table->string('lien_parente');
-            $table->date('date_sortie');
+            $table->string('date_sortie');
             $table->string('motif_sortie');
             $table->string('resultat_sortie');
-            $table->date('date_deces')->nullable();
+            $table->string('date_deces')->nullable();
             $table->string('motif_deces')->nullable();
             $table->foreignId('medecin_id')->constrained('medecins');
             $table->foreignId('patient_id')->constrained('patients');

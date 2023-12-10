@@ -32,7 +32,7 @@
                                     <optgroup label="LISTE DES PATIENTS">
                                         <option value="#">VEUILLEZ SELECTIONNER UN PATIENT</option>
                                         @foreach ($patients as $patient)
-                                        <option value="{{ $patient->id }}">{{ $patient->id }}</option>
+                                        <option value="{{ $patient->id }}">{{ $patient->user->name }}</option>
                                         @endforeach
                                     </optgroup>
                                 </select>
@@ -72,7 +72,7 @@
                                     <optgroup label="LISTE DES MEDECINS">
                                         <option value="#">VEUILLEZ SELECTIONNER UN MEDECIN</option>
                                         @foreach ($medecins as $medecin)
-                                        <option value="{{ $medecin->id }}">{{ $medecin->id }}</option>
+                                        <option value="{{ $medecin->id }}">{{ $medecin->user->name }}</option>
                                         @endforeach
                                     </optgroup>
                                 </select>
