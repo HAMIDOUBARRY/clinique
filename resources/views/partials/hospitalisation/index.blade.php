@@ -40,7 +40,7 @@
                 <tr>
                     <td>{{$ide}}</td>
                     <td class="table-plus">{{$hospitalisation->patient->user->name}}</td>
-                    <td class="table-plus">{{$hospitalisation->date}}</td>
+                    <td>{{ \Carbon\Carbon::parse($hospitalisation->date)->isoFormat('DD MMMM YYYY') }}</td>
                     <td>{{$hospitalisation->type_admission}}</td>
                     <td>{{$hospitalisation->motif}}</td>
                     <td>{{$hospitalisation->name_acc}}</td>

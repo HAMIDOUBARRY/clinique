@@ -16,11 +16,24 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('hopital_id')->constrained('hopitals');
             $table->foreignId('hospitalisation_id')->constrained('hospitalisations');
-            $table->foreignId('examen_biologie_id')->constrained('examen_biologies');
-            $table->foreignId('examen_radiologie_id')->constrained('examen_radiologies');  
-            $table->foreignId('chirurgie_id')->constrained('chirurgies');  
-            $table->double('prix');                      
+             // Nouvelle colonne pour stocker le type d'examen
+            $table->string('type_examen');
+
+            $table->double('prix');
+
+            // Champs spécifiques à l'examen de biologie
+            $table->string('groupe_sanguin')->nullable();
+            $table->string('litre_sang')->nullable();
+            $table->string('resultat_examen')->nullable();
+
+            // Champs spécifiques à l'examen de radiologie
+            $table->string('resultat_radiologie')->nullable();
+            $table->string('image_radiologie')->nullable();
+
+            // Champs spécifiques à la chirurgie
+            $table->string('anesthesie')->nullable();
             $table->timestamps();
+
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -31,7 +44,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('traitements', function (Blueprint $table) {
-            $table->dropForeign(['hospitalisation_id','hopital_id','examen_biologie_id','examen_radiologie_id','chirurgie_id']);
+            $table->dropForeign(['hospitalisation_id','hopital_id']);
         });
         Schema::dropIfExists('traitements');
     }

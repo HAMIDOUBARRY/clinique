@@ -9,6 +9,7 @@ use App\Http\Controllers\medecincontroller;
 use App\Http\Controllers\patientcontroller;
 use App\Http\Controllers\rendezvouscontroller;
 use App\Http\Controllers\specialitecontroller;
+use App\Http\Controllers\traitementController;
 use App\Http\Controllers\usercontroller;
 use App\Models\chambre;
 use App\Models\medecin;
@@ -79,6 +80,12 @@ Route::group(['prefix'=>'hospitalisation'],function (){
  Route::get('/',[HospitalisationController::class, "index"])->name("hospitalisation.index");
  Route::get('/create',[HospitalisationController::class, "create"])->name("hospitalisation.create");
  Route::post('/create/add',[HospitalisationController::class, "store"])->name("hospitalisation.store");
+});
+//POUR TRAITEMENT 
+Route::group(['prefix'=>'traitement'], function(){
+Route::get('/',[traitementController::class, "index"])->name("traitement.index");
+Route::get('/create',[traitementController::class, "create"])->name("traitement.create");
+Route::post('/create/add',[traitementController::class, "store"])->name("traitement.store");
 });
 Auth::routes();
 

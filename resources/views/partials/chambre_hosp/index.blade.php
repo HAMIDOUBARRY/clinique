@@ -7,13 +7,13 @@
     </a>
 </div>
 <!-- Checkbox select Datatable start -->
-<div class="card-box mb-30"  id="tableContainer">
+<div class="card-box mb-30" id="tableContainer">
     <div class="pd-20">
         <h4 class="text-blue h4">Data Table with Checckbox select</h4>
     </div>
     <div class="btn-list-end d-flex justify-content-first mb-30">
-        <a href="#" onclick="showForm()"  class="btn btn-primary btn-lg   ">
-            AJOUTER 
+        <a href="#" onclick="showForm()" class="btn btn-primary btn-lg   ">
+            AJOUTER
         </a>
     </div>
     <div class="pb-20">
@@ -37,14 +37,14 @@
             <tbody>
                 @foreach($chambres as $chambre)
                 @foreach($chambre->hospitalisations as $hospitalisation)
-                    <tr>
-                        <td></td>
-                        <td>{{ $chambre->id }}</td>
-                        <td>{{ $chambre->no_chambre }}</td>
-                        <td>{{ $hospitalisation->patient->user->name}}</td>
-                        <td>{{ $hospitalisation->pivot->date_attrib }}</td>
-                        <td>{{ $hospitalisation->pivot->date_liberation }}</td>
-                        <td>
+                <tr>
+                    <td></td>
+                    <td>{{ $chambre->id }}</td>
+                    <td>{{ $chambre->no_chambre }}</td>
+                    <td>{{ $hospitalisation->patient->user->name}}</td>
+                    <td>{{ \Carbon\Carbon::parse($hospitalisation->pivot->date_attrib )->isoFormat('DD MMMM YYYY') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($hospitalisation->pivot->date_liberation )->isoFormat('DD MMMM YYYY') }}</td>
+                    <td>
                         <div class="table-actions">
                             <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
                             <a href="#" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
@@ -52,7 +52,7 @@
                     </td>
                 </tr>
                 @endforeach
-            @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>

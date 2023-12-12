@@ -48,7 +48,7 @@
                         <span class="mtext"> TRAITEMENT</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="#">TRAITEMENT</a></li>
+                        <li><a href="{{route("traitement.index")}}">TRAITEMENT</a></li>
                         <li><a href="{{route('hopital.index')}}">HOPITALS</a></li>
                         <li><a href="#">EXAMEN BIOLOGIQUE</a></li>
                         <li><a href="#">EXAMEN RADIOLOGIE</a></li>
