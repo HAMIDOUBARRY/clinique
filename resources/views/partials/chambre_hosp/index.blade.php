@@ -35,11 +35,14 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $ide=1;
+                @endphp
                 @foreach($chambres as $chambre)
                 @foreach($chambre->hospitalisations as $hospitalisation)
                 <tr>
                     <td></td>
-                    <td>{{ $chambre->id }}</td>
+                    <td>{{ $ide }}</td>
                     <td>{{ $chambre->no_chambre }}</td>
                     <td>{{ $hospitalisation->patient->user->name}}</td>
                     <td>{{ \Carbon\Carbon::parse($hospitalisation->pivot->date_attrib )->isoFormat('DD MMMM YYYY') }}</td>
@@ -47,10 +50,16 @@
                     <td>
                         <div class="table-actions">
                             <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
-                            <a href="#" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#confirmation-modal{{$hospitalisation->id}}" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
                         </div>
                     </td>
                 </tr>
+
+                @include("partials.chambre_hosp.delete")
+
+                @php
+                    $ide+=1;
+                @endphp
                 @endforeach
                 @endforeach
             </tbody>

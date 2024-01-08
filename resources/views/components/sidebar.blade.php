@@ -25,7 +25,7 @@
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon fa fa-user-nurse" style="font-size: 2.5em;"></span>
-                        <span class="mtext">GESTION PATIENT</span>
+                        <span class="mtext"> PATIENT</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('patient.index')}}">PATIENT</a></li>
@@ -62,7 +62,7 @@
                         <span class="mtext">CONSULTATION</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="#">CONSULTATION</a></li>
+                        <li><a href="{{route("consultation.index")}}">CONSULTATION</a></li>
                         <li><a href="#">TYPE_CONSULTATION</a></li>
                         <li><a href="#">PATIENT</a></li>
                         <li><a href="#">MEDECIN</a></li>
@@ -74,8 +74,8 @@
                         <span class="mtext">MEDECIN</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="{{route("medecin.index")}}">MEDEDCIN</a></li>
-                        <li><a href="knob-chart.html">SPECIALITE</a></li>
+                        <li><a href="{{route("medecin.index")}}">MEDECIN</a></li>
+                        <li><a href="{{route('specialite.index')}}">SPECIALITE</a></li>
                         <li><a href="jvectormap.html">DEPARTEMENT</a></li>
                     </ul>
                 </li>
@@ -86,7 +86,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('hospitalisation.index')}}">HOSPITALISER</a></li>
-                        <li><a href="#">CHAMBRE_HOSPITALISER</a></li>
+                        <li><a href="{{route('chambrehospitalisation.index')}}">CHAMBRE_HOSPITALISER</a></li>
 
                     </ul>
                 </li>
@@ -97,7 +97,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('chambre.index')}}">CHAMBRE</a></li>
-                        <li><a href="#">CHAMBRE_HOSPITALISER</a></li>
+                        <li><a href="{{route('chambrehospitalisation.index')}}">CHAMBRE_HOSPITALISER</a></li>
                     </ul>
                 </li>
 

@@ -61,7 +61,6 @@
 				<!-- Default Basic Forms Start -->
 				<!-- Export Datatable start -->
 				<!-- Export Datatable End -->
-				@include("components.footer")
 				@include("components.script")
 </body>
 

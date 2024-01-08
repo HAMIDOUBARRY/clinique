@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\medecin;
 use App\Models\specialite;
 use Illuminate\Http\Request;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class specialitecontroller extends Controller
 {
@@ -75,8 +77,29 @@ class specialitecontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+        try {
+            $specialite = specialite::find($id);
+            if ($specialite) {
+                $specialite->delete();
+        
+                // Supprimer également le medecin associé
+                $medecin = medecin::find($specialite->medecin_id);
+                if ($medecin) {
+                    $medecin->delete();
+                }
+        
+                Toastr::success('La specialite a été supprimé avec succès.');
+            } else {
+                Toastr::error('La specialite n\'a pas été trouvé.');
+            }
+        
+            return redirect("/specialite");
+        } catch (\Exception $e) {
+            Toastr::error('Une erreur s\'est produite lors de la suppression du Specialite. Veuillez réessayer.');
+            return redirect()->back()->withInput();
+        }
     }
 }

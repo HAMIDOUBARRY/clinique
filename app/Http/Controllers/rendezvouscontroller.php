@@ -16,7 +16,7 @@ class rendezvouscontroller extends Controller
     public function index()
     {
         //
-        $rendezvouses= rendezvous::all();
+        $rendezvouses= rendezvous::latest()->get();
         $services= service::all();
         $patients= patient::all();
         $medecins= medecin::all();
@@ -88,8 +88,12 @@ class rendezvouscontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
         //
+        $rendezvous= rendezvous::find($id);
+        $rendezvous->delete();
+        return redirect()->route('rendezvous.index')->with("success",'suppression effectuer');
+
     }
 }

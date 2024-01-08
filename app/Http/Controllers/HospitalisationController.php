@@ -91,8 +91,16 @@ class HospitalisationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
         //
+        try {
+            hospitalisation::destroy($id);
+            Toastr::success('L\'hospitalisation a été supprimée avec succès!', 'Succès');
+            return redirect('hospitalisation');
+        } catch (\Exception $e) {
+            Toastr::error('Une erreur s\'est produite lors de la suppression de l\'hospitalisation. Veuillez réessayer plus tard.', 'Erreur');
+            return redirect()->back();
+        }
     }
 }

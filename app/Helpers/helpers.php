@@ -2,8 +2,16 @@
 use Illuminate\Support\Str;
 
 function userFullName(){
-    return auth()->user()->prenom . " " . auth()->user()->name;
+    $user = auth()->user();
+
+    if ($user) {
+        return $user->prenom . " " . $user->name;
+    }
+    
+    // Si l'utilisateur n'est pas authentifié, On peut retourner une valeur par défaut.
+    return "Utilisateur Inconnue";
 }
+
 
 
 function setMenuClass($route, $classe)

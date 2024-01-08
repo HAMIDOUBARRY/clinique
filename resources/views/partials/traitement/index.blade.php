@@ -26,9 +26,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($traitements as $traitement)
+                @php
+                $ide=1
+                @endphp
+                @foreach ($traitement as $traitement)
                 <tr>
-                    <td class="table-plus">{{$traitement->id}}</td>
+                    <td class="table-plus">{{$ide}}</td>
                     <td>{{ \Carbon\Carbon::parse($traitement->date)->isoFormat('DD MMMM YYYY') }}</td>
                     <td>{{$traitement->hopital->nom}}</td>
                     <td>{{$traitement->hospitalisation->patient->user->matricule}}</td>
@@ -48,10 +51,17 @@
                         <div class="table-actions">
                             <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
                             <a href="#" data-color="#34a853"><i class="icon-copy dw dw-eye"></i></a>
-                            <a href="#" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#confirmation-modal{{$traitement->id}}"
+                                data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i>
+                            </a>
                         </div>
                     </td>
                 </tr>
+                @include('partials.traitement.delete')
+                @php
+                $ide+=1;
+                @endphp
+
                 @endforeach
             </tbody>
         </table>
@@ -66,5 +76,6 @@
         $('#champs_' + selectedType).show();
     });
 </script>
+
 
 @endsection

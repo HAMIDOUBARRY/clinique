@@ -15,7 +15,7 @@ class usercontroller extends Controller
     public function index()
     {
         //
-        $users=User::orderBy('created_at', 'asc')->get();
+        $users=User::latest()->get();
         return view('partials.user.user',compact('users'));
     }
 
@@ -90,8 +90,18 @@ class usercontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+        try {
+            //code...
+            User::find($id)->delete();
+            toastr()->success("Success", "utilisateur a belle bien ete supprimer ");
+            return redirect("/user");
+        } catch (\Throwable $th) {
+            //throw $th;
+            toastr()->error("eror", 'erreur a ete detecte');
+            return redirect("/user");
+        }
     }
 }

@@ -25,7 +25,7 @@ class patient extends User
 
     public function rendezvouses():HasMany
     {
-        return $this->hasMany(rendezvous::class);
+        return $this->hasMany(rendezvous::class)->onDelete('cascade')->onUpdate('cascade');
     }
 
     public function hospitalisations():HasMany

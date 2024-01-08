@@ -4,9 +4,9 @@
 
 <div class="btn-list-end d-flex justify-content-end mb-30">
     <a href="{{route('specialite.index')}}" class="btn btn-primary btn-lg col-md-2  ">
-       SPECIALITE
+        SPECIALITE
     </a>
-  
+
 </div>
 
 <!-- Checkbox select Datatable start -->
@@ -40,25 +40,28 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($medecins as $medecin)
-            <tr>
-                <td></td>
-                <td>{{$medecin->user->matricule}}</td>
-                <td>{{$medecin->user->name}}</td>
-                <td>{{$medecin->user->prenom}}</td>
-                <td>{{$medecin->user->email}}</td>
-                <td>{{$medecin->service->nom}}</td>
-                <td>{{$medecin->specialite->type_specialite}}</td>
-                <td>{{$medecin->user->tel}}</td>
-                <td>
-                    <div class="table-actions">
-                        <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
-                        <a href="#" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
-                    </div>
-                </td>
-            </tr>
+                @foreach ($medecins as $medecin)
+                <tr>
+                    <td></td>
+                    <td>{{$medecin->user->matricule}}</td>
+                    <td>{{$medecin->user->name}}</td>
+                    <td>{{$medecin->user->prenom}}</td>
+                    <td>{{$medecin->user->email}}</td>
+                    <td>{{$medecin->service->nom}}</td>
+                    <td>{{$medecin->specialite->type_specialite}}</td>
+                    <td>{{$medecin->user->tel}}</td>
+                    <td>
+                        <div class="table-actions">
+                            <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#confirmation-modal{{$medecin->id}}"
+                                data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
+                        </div>
+                    </td>
+                </tr>
 
-            @endforeach
+                @include("partials.medecin.delete")
+
+                @endforeach
             </tbody>
         </table>
     </div>

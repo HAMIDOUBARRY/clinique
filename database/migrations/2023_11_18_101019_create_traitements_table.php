@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('traitements', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->foreignId('hopital_id')->constrained('hopitals');
+            $table->foreignId('hopital_id')->constrained('hopitals')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('hospitalisation_id')->constrained('hospitalisations');
              // Nouvelle colonne pour stocker le type d'examen
             $table->string('type_examen');

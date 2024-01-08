@@ -52,19 +52,18 @@
                     <td>{{$hospitalisation->motif_deces}}</td>
                     <td>{{$hospitalisation->created_at->diffForHumans()}}</td>
                     <td>
-                        <div class="dropdown">
-                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#"
-                                role="button" data-toggle="dropdown">
-                                <i class="dw dw-more"></i>
+                        <div class="table-actions">
+                            <a href="#" data-color="#265ed7"><i
+                                    class="icon-copy dw dw-edit2"></i></a>
+                            <a href="#" data-color="#34a853"><i class="icon-copy dw dw-eye"></i></a>
+                            <a  href="#" data-toggle="modal" data-target="#confirmation-modal{{$hospitalisation->id}}" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                                <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-                            </div>
                         </div>
                     </td>
                 </tr>
+
+                @include("partials.hospitalisation.delete")
+
                 @php
                 $ide+=1
                 @endphp

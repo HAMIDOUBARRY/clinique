@@ -9,7 +9,7 @@
                         TRAITEMENT
                     </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        ×
+                        X
                     </button>
                 </div>
                 <div class="modal-body">
@@ -35,7 +35,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label>HOPITAL</label>
+                                    <label>CLINIQUE</label>
                                     <select name="hopital_id" id="hopital_id"
                                         class="form-control @error('hopital_id') is-invalid @enderror">
                                         <option value="">VEUILLEZ CHOISIR VOTRE HOPITAL</option>
@@ -57,7 +57,7 @@
                                     class="form-control @error('hospitalisation_id') is-invalid @enderror">
                                     <option value="">VEUILLEZ CHOISIR VOTRE HOSPITALISATION</option>
                                     @foreach ($hospitalisations as $hospitalisation)
-                                    <option value="{{$hospitalisation->id}}">{{$hospitalisation->patient->user->name}}
+                                    <option value="{{$hospitalisation->id}}">{{$hospitalisation->patient->user->matricule}}
                                     </option>
 
                                     @endforeach
@@ -116,10 +116,10 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">
-                                Close
+                                ANNULLER
                             </button>
                             <button type="submit" class="btn btn-primary">
-                                Save changes
+                                ENREGISTER
                             </button>
                         </div>
                     </form>

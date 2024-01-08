@@ -18,7 +18,6 @@ class ChambreHospitalisationController extends Controller
         $hospitalisations = Hospitalisation::all();
 
         return view('partials.chambre_hosp.index', compact('chambres', 'hospitalisations'));
-
     }
 
     /**
@@ -31,7 +30,6 @@ class ChambreHospitalisationController extends Controller
         $hospitalisations = hospitalisation::all();
 
         return view('partials.chambre_hosp.create', compact('chambres', 'hospitalisations'));
-
     }
 
     /**
@@ -49,7 +47,6 @@ class ChambreHospitalisationController extends Controller
         ]);
 
         return redirect('chambrehospitalisation')->with('success', 'Relation ajoutée avec succès');
-
     }
 
     /**
@@ -67,16 +64,16 @@ class ChambreHospitalisationController extends Controller
     {
         $chambre = Chambre::findOrFail($chambreId);
         $hospitalisation = Hospitalisation::findOrFail($hospitalisationId);
-    
+
         // Assurez-vous que la relation many-to-many est correctement chargée
         $chambre->load('hospitalisations');
-    
+
         // Récupérez les données de la table pivot
         $pivotData = $chambre->hospitalisations->find($hospitalisationId)->pivot;
-    
+
         return view('partials.chambre_hosp.edit', compact('chambre', 'hospitalisation', 'pivotData'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      */
@@ -88,23 +85,27 @@ class ChambreHospitalisationController extends Controller
             'date_attrib' => 'required|date',
             'date_liberation' => 'required|date',
         ]);
-    
+
         $chambre = Chambre::findOrFail($request->input('chambre_id'));
         $hospitalisation = Hospitalisation::findOrFail($request->input('hospitalisation_id'));
-    
+
         $chambre->hospitalisations()->updateExistingPivot($hospitalisation->id, [
             'date_attrib' => $request->input('date_attrib'),
             'date_liberation' => $request->input('date_liberation'),
         ]);
-    
+
         return redirect('chambrehospitalisation')->with('success', 'Relation modifiée avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $hospitalisation = Hospitalisation::findOrFail($id);
+
+        $hospitalisation->chambres()->detach();
+
+        return redirect('chambrehospitalisation')->with('success', 'Relation supprimée avec succès');
     }
 }

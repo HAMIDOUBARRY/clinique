@@ -16,9 +16,9 @@ return new class extends Migration
             
             $table->string('date');
             
-            $table->foreignId('patient_id')->constrained('patients');
-            $table->foreignId('service_id')->constrained('services');
-            $table->foreignId('medecin_id')->constrained('medecins');
+            $table->foreignId('patient_id')->constrained('patients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('medecin_id')->constrained('medecins')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

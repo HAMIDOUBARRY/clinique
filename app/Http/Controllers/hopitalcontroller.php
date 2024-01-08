@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\hopital;
 use App\Models\service;
+use App\Models\traitement;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class hopitalcontroller extends Controller
 {
@@ -15,7 +17,7 @@ class hopitalcontroller extends Controller
      */
     public function index()
     {
-        $hopitals = hopital::all();
+        $hopitals = hopital::latest()->get();
         $services = service::all();
 
         return view('partials.hopital.index', compact('hopitals', 'services'));
@@ -110,8 +112,28 @@ class hopitalcontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+            try {
+        $hopital = Hopital::find($id);
+
+        if ($hopital) {
+            // Supprimer l'hôpital
+            $hopital->delete();
+
+            // Supprimer également les traitements associés à cet hôpital
+            $hopital->traitements()->delete();
+
+            Toastr::success('L\'hôpital a été supprimé avec succès.');
+        } else {
+            Toastr::error('L\'hôpital n\'a pas été trouvé.');
+        }
+
+        return redirect("/hopital");
+    } catch (\Exception $e) {
+        Toastr::error('Une erreur s\'est produite lors de la suppression de l\'hôpital. Veuillez réessayer.');
+        return redirect()->back()->withInput();
+    }
+
     }
 }

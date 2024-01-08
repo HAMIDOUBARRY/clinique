@@ -104,8 +104,30 @@ class patientcontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+        try {
+            $patient = Patient::find($id);
+            if ($patient) {
+                $patient->delete();
+        
+                // Supprimer également l'utilisateur associé
+                $user = User::find($patient->user_id);
+                if ($user) {
+                    $user->delete();
+                }
+        
+                Toastr::success('Le patient a été supprimé avec succès.');
+            } else {
+                Toastr::error('Le patient n\'a pas été trouvé.');
+            }
+        
+            return redirect("/patient");
+        } catch (\Exception $e) {
+            Toastr::error('Une erreur s\'est produite lors de la suppression du patient. Veuillez réessayer.');
+            return redirect()->back()->withInput();
+        }
+        
     }
 }

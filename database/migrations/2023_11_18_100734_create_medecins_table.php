@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('medecins', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
 
-            $table->foreignId('specialite_id')->constrained('specialites');
+            $table->foreignId('specialite_id')->constrained('specialites')->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreignId('service_id')->constrained('services');
 

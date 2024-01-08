@@ -80,8 +80,18 @@ class chambrecontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+        try {
+            //code...
+            chambre::destroy($id);
+            toastr()->success("Success", "chambre a été bien supprimé ");
+            return redirect("/chambre");
+        } catch (\Throwable $th) {
+            //throw $th;
+            toastr()->error('Une erreur s\'est produite lors de la suppression du chambre. Veuillez réessayer.');
+            return redirect("/chambre");
+        }
     }
 }

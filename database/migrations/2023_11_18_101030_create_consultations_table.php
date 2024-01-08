@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('synthese');
 
             $table->foreignId('patient_id')->constrained('patients');
-            $table->foreignId('medecin_id')->constrained('medecins');
+            $table->foreignId('medecin_id')->constrained('medecins')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('typeconsultation_id')->constrained('typeconsultations');
             $table->timestamps();
         });

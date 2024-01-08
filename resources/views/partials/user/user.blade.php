@@ -10,10 +10,11 @@
                 target="_blank">AJOUTER</a>
         </p>
     </div>
-    <div class="pb-20"  style="overflow-x: auto;">
+    <div class="pb-20" style="overflow-x: auto;">
         <table class="data-table table stripe hover nowrap">
             <thead>
                 <tr>
+                    <th class="table-plus datatable-nosort">##</th>
                     <th class="table-plus datatable-nosort">MATRICULE</th>
                     <th>NAME</th>
                     <th>PRENOM</th>
@@ -25,9 +26,12 @@
                 </tr>
             </thead>
             <tbody>
-
+                @php
+                $ide=1;
+                @endphp
                 @foreach ($users as $user)
                 <tr>
+                    <td class="table-plus">{{$ide}}</td>
                     <td class="table-plus">{{$user->matricule}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->prenom}}</td>
@@ -51,12 +55,14 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                 <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
                                 <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                                <a class="dropdown-item" href="#"><i class="dw dw-delete-4"></i> Delete</a>
+                                <a class="dropdown-item" href="{{route('user.destroy', $user->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')"><i class="dw dw-delete-4"></i> Delete</a>
                             </div>
                         </div>
                     </td>
                 </tr>
-
+                @php
+                $ide+=1;
+                @endphp
                 @endforeach
 
             </tbody>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\consultation;
 use App\Models\medecin;
 use App\Models\service;
 use App\Models\specialite;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class medecincontroller extends Controller
@@ -103,8 +105,32 @@ class medecincontroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy($id)
+{
+    $medecin = Medecin::find($id);
+
+    if ($medecin) {
+        $consultation = Consultation::find($medecin->consultation_id);
+        $user = User::find($medecin->user_id);
+
+        // Supprimer le medecin
+        $medecin->delete();
+
+        // Supprimer la consultation
+        if ($consultation) {
+            $consultation->delete();
+        }
+
+        // Supprimer l'utilisateur associé
+        if ($user) {
+            $user->delete();
+        }
+
+        Toastr::success('Le médecin a été supprimé avec succès.');
+    } else {
+        Toastr::error('Le médecin n\'a pas été trouvé.');
     }
+
+    return Redirect::to("/medecin");
+}
 }

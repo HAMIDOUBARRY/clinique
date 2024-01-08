@@ -1,7 +1,8 @@
+<!-- Medium modal -->
 <div class="col-md-4 col-sm-12 mb-30">
-    <div class="modal fade" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myLargeModalLabel">
@@ -12,24 +13,23 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('specialite.store')}}" method="POST">
-
+                    <form action="{{ route('specialite.store')}}" method="POST">
                         @csrf
 
-
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-md-2 col-form-label" for="type_specialite">SPECIALITE</label>
-                            <input type="text" name="type_specialite" class="form-control" required>
-
-
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label for="type_specialite">TYPE_SPECIALITE</label>
+                                    <input type="text" name="type_specialite" required class="form-control" />
+                                </div>
+                            </div>
                         </div>
-
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                Close
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                ANNULER
                             </button>
                             <button type="submit" class="btn btn-primary">
-                                Save changes
+                                ENREGISTRER
                             </button>
                         </div>
                     </form>
@@ -38,4 +38,5 @@
             </div>
         </div>
     </div>
+
 </div>

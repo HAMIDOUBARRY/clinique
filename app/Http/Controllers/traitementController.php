@@ -15,10 +15,10 @@ class traitementController extends Controller
     public function index()
     {
         //
-        $traitements = traitement::all();
+        $traitement = traitement::latest()->get();
         $hopitals = hopital::all();
         $hospitalisations = hospitalisation::all();
-        return view("partials.traitement.index", compact("traitements", "hopitals", "hospitalisations"));
+        return view("partials.traitement.index", compact("traitement", "hopitals", "hospitalisations"));
     }
 
     /**
@@ -27,12 +27,11 @@ class traitementController extends Controller
     public function create()
     {
         //
-         //
-         $traitements = traitement::all();
-         $hopitals = hopital::all();
-         $hospitalisations = hospitalisation::all();
-         return view("partials.traitement.create", compact("traitements", "hopitals", "hospitalisations"));
-   
+        //
+        $traitements = traitement::all();
+        $hopitals = hopital::all();
+        $hospitalisations = hospitalisation::all();
+        return view("partials.traitement.create", compact("traitements", "hopitals", "hospitalisations"));
     }
 
     /**
@@ -50,11 +49,11 @@ class traitementController extends Controller
             // Ajoutez les règles de validation pour les autres champs
         ]);
         // Créez un nouveau traitement
+
         $traitements = Traitement::create($request->all());
 
         // Redirigez l'utilisateur ou faites toute autre action nécessaire
         return redirect("/traitement")->with('success', 'Traitement enregistré avec succès.');
-
     }
 
     /**
@@ -68,7 +67,7 @@ class traitementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
     }
@@ -76,7 +75,7 @@ class traitementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -84,8 +83,11 @@ class traitementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $traitement =traitement::find($id);
+        $traitement->delete();
+        return redirect()->route('traitement.index')->with("success", 'suppression effectuer');
+
     }
 }
